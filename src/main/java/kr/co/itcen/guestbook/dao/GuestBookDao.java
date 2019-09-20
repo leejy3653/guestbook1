@@ -14,7 +14,7 @@ import kr.co.itcen.guestbook.vo.GuestBookVo;
 public class GuestBookDao {
 	public Boolean insert(GuestBookVo Vo) {
 		Boolean result = false;
-		
+
 		Connection connection = null;
 		PreparedStatement pstmt = null;
 		Statement stmt = null;
@@ -66,7 +66,7 @@ public class GuestBookDao {
 		Connection connection = null;
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			String url = "jdbc:mariadb://192.168.1.90:3306/webdb?characterEncoding=utf8"; //노트북
+			String url = "jdbc:mariadb://192.168.1.116:3306/webdb?characterEncoding=utf8";
 			connection = DriverManager.getConnection(url, "webdb", "webdb");
 		} catch (ClassNotFoundException e) {
 			System.out.println("Fail to Loading Driver:" + e);
@@ -110,7 +110,7 @@ public class GuestBookDao {
 		try {
 			connection = getConnection();
 
-			String sql = "select no, name, contents, date_format(reg_date,'%Y-%m-%d %H:%i:%s') from guestbook order by no desc";
+			String sql = "select no, name, contents, date_format(reg_date,'%Y-%m-%d %H:%i:%s') from guestbook order by reg_date desc";
 			pstmt = connection.prepareStatement(sql);
 
 			rs = pstmt.executeQuery();

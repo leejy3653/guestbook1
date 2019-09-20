@@ -34,17 +34,21 @@
 	<br>
 	<%
 		for (GuestBookVo Vo : list) {
+			//for(int i = 0; i < list.size(); i++){
 	%>
 
 	<table width=510 border=1>
 		<tr>
-			<td><%=Vo.getNo()%></td>
+			<td>[<%=Vo.getNo()%>]
+			</td>
 			<td><%=Vo.getName()%></td>
 			<td><%=Vo.getReg_date()%></td>
 			<td><a href="deleteform.jsp?no=<%=Vo.getNo()%>">삭제</a></td>
 		</tr>
 		<tr>
-			<td colspan=4><%=Vo.getContents()%></td>
+			<td colspan=4><%=Vo.getContents().replaceAll("\n", "<br>") %><!-- 개행 -->
+			</td>
+
 		</tr>
 	</table>
 	<%

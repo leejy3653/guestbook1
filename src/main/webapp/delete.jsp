@@ -12,7 +12,6 @@
 	Vo.setPassword(password);
 	
 	new GuestBookDao().delete(Vo);
-	
 	response.sendRedirect(request.getContextPath());
 	
 %>

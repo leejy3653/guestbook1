@@ -10,7 +10,7 @@
 </head>
 <body>
 	<br />
-	<form method="post" action="/guestbook1/delete.jsp">
+	<form method="post" action="<%=request.getContextPath()%>/delete.jsp">
 		<input type='hidden' name="no" value="<%=no%>">
 		<table>
 			<tr>
